@@ -1,0 +1,36 @@
+#! /usr/local/php/bin/php
+<?php
+	$ver = substr(PHP_VERSION, 0 , 1);
+	if ($ver == 5) {
+		require('god_func');
+	} else {
+		require('god_func7');
+	}
+
+	$result = '';
+	if ($argc >= 2) {
+		if ($argv[1] == '-v') {
+			$result = 'god version is 1.0';
+		} else if ($argv[1] == 'init') {
+			$result = genConfig();
+		}
+	}
+
+	echo $result;
+	echo PHP_EOL;
+
+/*	
+	function genConfig() {	
+		$result = '';
+
+		$filename = getcwd().'/god.json';
+		$content = '{}';
+		$count = file_put_contents($filename, $content);
+		if ($count <> false) {
+			$result = $count . ' of bytes is written'.PHP_EOL;
+			$result .= 'god config is created';
+		}
+
+		return $result;
+	}
+*/

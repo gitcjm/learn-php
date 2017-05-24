@@ -1,0 +1,16 @@
+<?php
+	// functions for php7
+    function genConfig():string {
+        $result = '';
+
+        $filename = getcwd().'/god.json';
+        $content = '{}';
+        $count = file_put_contents($filename, $content);
+        if ($count <> false) {
+            $result = $count . ' of bytes is written'.PHP_EOL;
+            $result .= 'god config is created';
+        }
+
+        return $result;
+    }
+
